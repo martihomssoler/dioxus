@@ -26,7 +26,7 @@ use tao::{
 };
 
 /// The single top-level object that manages all the running windows, assets, shortcuts, etc
-pub(crate) struct App {
+pub struct App {
     // move the props into a cell so we can pop it out later to create the first window
     // iOS panics if we create a window before the event loop is started, so we toss them into a cell
     pub(crate) unmounted_dom: Cell<Option<VirtualDom>>,
