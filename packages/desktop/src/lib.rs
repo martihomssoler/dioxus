@@ -46,11 +46,12 @@ pub use muda;
 pub mod trayicon;
 
 // Public exports
+pub use app::*;
 pub use assets::AssetRequest;
 pub use config::{Config, WindowCloseBehaviour};
 pub use desktop_context::{window, DesktopContext, DesktopService, WeakDesktopContext};
 pub use event_handlers::WryEventHandler;
 pub use hooks::*;
+pub use ipc::*;
 pub use shortcut::{HotKeyState, ShortcutHandle, ShortcutRegistryError};
 pub use wry::RequestAsyncResponder;
-pub use app::*;
