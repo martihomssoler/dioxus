@@ -45,16 +45,16 @@ pub struct App {
     /// This single blob of state is shared between all the windows so they have access to the runtime state
     ///
     /// This includes stuff like the event handlers, shortcuts, etc as well as ways to modify *other* windows
-    pub(crate) shared: Rc<SharedContext>,
+    pub shared: Rc<SharedContext>,
 }
 
 /// A bundle of state shared between all the windows, providing a way for us to communicate with running webview.
-pub(crate) struct SharedContext {
-    pub(crate) event_handlers: WindowEventHandlers,
+pub struct SharedContext {
+    pub event_handlers: WindowEventHandlers,
     pub(crate) pending_webviews: RefCell<Vec<WebviewInstance>>,
     pub(crate) shortcut_manager: ShortcutRegistry,
     pub(crate) proxy: EventLoopProxy<UserWindowEvent>,
-    pub(crate) target: EventLoopWindowTarget<UserWindowEvent>,
+    pub target: EventLoopWindowTarget<UserWindowEvent>,
 }
 
 impl App {
