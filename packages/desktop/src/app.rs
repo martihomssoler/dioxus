@@ -33,10 +33,12 @@ pub struct App {
     pub(crate) cfg: Cell<Option<Config>>,
 
     // Stuff we need mutable access to
-    pub(crate) control_flow: ControlFlow,
+    /// control_flow
+    pub control_flow: ControlFlow,
     pub(crate) is_visible_before_start: bool,
     pub(crate) window_behavior: WindowCloseBehaviour,
-    pub(crate) webviews: HashMap<WindowId, WebviewInstance>,
+    /// webviews
+    pub webviews: HashMap<WindowId, WebviewInstance>,
     pub(crate) float_all: bool,
     pub(crate) show_devtools: bool,
 
@@ -56,6 +58,7 @@ pub(crate) struct SharedContext {
 }
 
 impl App {
+    /// app new
     pub fn new(mut cfg: Config, virtual_dom: VirtualDom) -> (EventLoop<UserWindowEvent>, Self) {
         let event_loop = cfg
             .event_loop
@@ -511,7 +514,7 @@ impl App {
     /// This will attempt to save the window position, size, and monitor into the environment before
     /// closing. This way, when the app is restarted, it can attempt to restore the window to the same
     /// position and size it was in before, making a better DX.
-    pub(crate) fn handle_loop_destroyed(&self) {
+    pub fn handle_loop_destroyed(&self) {
         #[cfg(debug_assertions)]
         self.persist_window_state();
     }

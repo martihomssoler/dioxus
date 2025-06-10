@@ -154,7 +154,7 @@ impl WebviewEdits {
     }
 }
 
-pub(crate) struct WebviewInstance {
+pub struct WebviewInstance {
     pub dom: VirtualDom,
     pub edits: WebviewEdits,
     pub desktop_context: DesktopContext,
